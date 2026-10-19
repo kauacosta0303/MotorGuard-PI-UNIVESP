@@ -1,0 +1,108 @@
+{
+  "projeto": "MotorGuard",
+  "data_source": "SIMULADO — motor sintético de demonstração, base v2 do projeto",
+  "n_total": 5000,
+  "falhas_total": 54,
+  "taxa_falha": 0.0108,
+  "split": {
+    "treinamento": 3000,
+    "validacao": 1000,
+    "teste": 1000,
+    "seed": 42
+  },
+  "modelos_comparados": [
+    {
+      "modelo": "Baseline (classe majoritária)",
+      "ap_validacao": 0.011,
+      "roc_auc_validacao": 0.5,
+      "f2_validacao": 0.0,
+      "limiar_validacao": 0.95
+    },
+    {
+      "modelo": "Regressão logística balanceada",
+      "ap_validacao": 0.128226563256868,
+      "roc_auc_validacao": 0.7976836106259767,
+      "f2_validacao": 0.20114942528735633,
+      "limiar_validacao": 0.66
+    },
+    {
+      "modelo": "Random Forest balanceado",
+      "ap_validacao": 0.030220705156089846,
+      "roc_auc_validacao": 0.7280080889787666,
+      "f2_validacao": 0.14285714285714285,
+      "limiar_validacao": 0.11
+    }
+  ],
+  "selecionado": "Regressão logística balanceada",
+  "limiar_selecionado_na_validacao": 0.66,
+  "teste": {
+    "n": 1000,
+    "falhas_reais": 11,
+    "threshold": 0.66,
+    "average_precision": 0.045037028616390806,
+    "roc_auc": 0.8469528449306002,
+    "accuracy": 0.87,
+    "balanced_accuracy": 0.7544811103961762,
+    "precision": 0.05263157894736842,
+    "recall": 0.6363636363636364,
+    "f1": 0.09722222222222222,
+    "f2": 0.1977401129943503,
+    "specificity": 0.8725985844287159,
+    "confusion_matrix": [
+      [
+        863,
+        126
+      ],
+      [
+        4,
+        7
+      ]
+    ],
+    "false_positives": 126,
+    "false_negatives": 4,
+    "true_positives": 7,
+    "true_negatives": 863
+  },
+  "baseline_teste": {
+    "n": 1000,
+    "falhas_reais": 11,
+    "threshold": 0.5,
+    "average_precision": 0.011,
+    "roc_auc": 0.5,
+    "accuracy": 0.989,
+    "balanced_accuracy": 0.5,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "f2": 0.0,
+    "specificity": 1.0,
+    "confusion_matrix": [
+      [
+        989,
+        0
+      ],
+      [
+        11,
+        0
+      ]
+    ],
+    "false_positives": 0,
+    "false_negatives": 11,
+    "true_positives": 0,
+    "true_negatives": 989
+  },
+  "limitacoes": [
+    "Amostras e rótulos sintéticos",
+    "Sem sensores físicos ou validação com motores reais",
+    "Não há horizonte temporal de previsão",
+    "Score não calibrado como probabilidade industrial"
+  ],
+  "colunas": [
+    "temperatura_c",
+    "vibracao_mm_s",
+    "corrente_a",
+    "rotacao_rpm",
+    "torque_nm",
+    "horas_operacao"
+  ]
+}
